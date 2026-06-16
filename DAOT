@@ -1,0 +1,28 @@
+public class XxxDAO {
+    private Connection getConnection() throws Exception {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+    }
+    
+    public void insert(Xxx obj) {
+        String sql = "INSERT INTO table VALUES (?, ?)";
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, obj.getField1());
+            ps.executeUpdate();
+        }
+    }
+    
+    public List<Xxx> getAll() {
+        List<Xxx> list = new ArrayList<>();
+        String sql = "SELECT * FROM table";
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                list.add(new Xxx(rs.getInt("id"), rs.getString("name")));
+            }
+        }
+        return list;
+    }
+}
