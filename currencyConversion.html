@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Use JSP Dicleration Tag, JSP Scriplet and JSP Expression in Application</title>
+    <style>
+        h1 {
+            margin: 0;
+            padding: 20px;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 795px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .title{
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #6f42c1;
+        }
+        .form-title {
+            color: #6f42c1;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #555;
+        }
+         input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .radio-label {
+            font-weight: normal;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-submit {
+            background-color: #6f42c1;
+            color: white;
+        }
+        .btn-submit:hover {
+            background-color: #5a32a3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Use JSP Dicleration Tag, JSP Scriplet and JSP Expression in Application</h1>
+        <div class="card">
+            <h1 class="form-title">Currency Conversion</h1>
+            <form action="processCurrency.jsp" method="POST">
+                <div class="form-group">
+                    <label>Amount (in RM):</label>
+                    <input type="number" name="amount" step="any" min="1" required placeholder="[in RM]">
+                </div>
+                <div class="form-group">
+                    <label>Convert To:</label>
+                    <select name="currencyType" required>
+                        <option value="1">USD</option>
+                        <option value="2">EURO</option>
+                        <option value="3">JPY</option>
+                        <option value="4">SGD</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-submit">Submit</button>
+                    <button type="reset" class="btn btn-reset">Cancel</button>
+                </div> 
+            </form>
+        </div>
+    </div>
+    </body>
+</html>
