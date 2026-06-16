@@ -1,0 +1,23 @@
+@WebServlet("/Controller")
+@MultipartConfig
+public class MyServlet extends HttpServlet {
+    private XxxDAO dao = new XxxDAO();
+    
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        String action = req.getParameter("action");
+        if ("add".equals(action)) {
+            // add logic
+        } else if ("update".equals(action)) {
+            // update logic
+        }
+    }
+    
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+        String action = req.getParameter("action");
+        if ("delete".equals(action)) {
+            // delete logic
+        } else if ("list".equals(action)) {
+            // list logic
+        }
+    }
+}
